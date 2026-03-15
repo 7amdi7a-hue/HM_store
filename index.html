@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>براند عطور HM</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#333;}
+a{text-decoration:none;color:inherit;}
+header{display:flex;justify-content: space-between;align-items:center;background:#fff;padding:10px 20px;box-shadow:0 2px 5px rgba(0,0,0,0.1);position: sticky;top:0;z-index:100;}
+.logo{font-weight:bold;font-size:28px;color:#4B0082;}
+nav a{margin:0 10px;font-weight:bold;color:#4B0082;}
+nav a:hover{color:#FF1493;}
+.cart{position:fixed;top:80px;right:20px;background:#4B0082;color:white;padding:10px 15px;border-radius:50px;cursor:pointer;font-weight:bold;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:100;}
+.cart:hover{background:#FF1493;}
+h2{text-align:center;margin-top:30px;color:#4B0082;}
+.container{display:flex;flex-wrap:wrap;justify-content:center;margin:20px;}
+.card{background:white;border:1px solid #ddd;border-radius:12px;width:200px;margin:15px;padding:15px;transition: transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform: scale(1.05);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.card img{width:100%;border-radius:10px;}
+h3{margin:10px 0 5px 0;}
+.price{color:#FF1493;font-weight:bold;}
+button{background:#4B0082;color:white;border:none;padding:10px;border-radius:5px;cursor:pointer;width:100%;font-weight:bold;margin-top:10px;transition:0.3s;}
+button:hover{background:#FF1493;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HM</div>
+  <nav>
+    <a href="#men">رجالي</a>
+    <a href="#women">حريمي</a>
+    <a href="https://wa.me/201211309964" target="_blank">دعم</a>
+  </nav>
+</header>
+
+<div class="cart" id="cart" onclick="sendCart()">🛒 سلة التسوق: <span id="count">0</span> منتجات - <span id="total">0</span> جنيه</div>
+
+<script>
+let cartItems=[];
+let total=0;
+function addToCart(name,price){
+  cartItems.push({name:name,price:price});
+  total+=price;
+  document.getElementById('count').innerText=cartItems.length;
+  document.getElementById('total').innerText=total;
+  alert(name+" أضيف للسلة!");
+}
+function sendCart(){
+  if(cartItems.length==0){alert("السلة فارغة!"); return;}
+  let message="طلب من متجر HM:\n";
+  cartItems.forEach((item,index)=>{message+=`${index+1}. ${item.name} - ${item.price} جنيه\n`;});
+  message+="المجموع: "+total+" جنيه";
+  let waLink="https://wa.me/201211309964?text="+encodeURIComponent(message);
+  window.open(waLink,"_blank");
+}
+</script>
+
+<!-- ======= قسم رجالي ======= -->
+<h2 id="men">عطور رجالي</h2>
+<div class="container">
+  <div class="card"><img src="https://i.imgur.com/xGQzTqB.jpg" alt="عطر رجالي 1"><h3>عطر رجالي 1</h3><p class="price">900</p><button onclick="addToCart('عطر رجالي 1',900)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqC.jpg" alt="عطر رجالي 2"><h3>عطر رجالي 2</h3><p class="price">1200</p><button onclick="addToCart('عطر رجالي 2',1200)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqD.jpg" alt="عطر رجالي 3"><h3>عطر رجالي 3</h3><p class="price">1400</p><button onclick="addToCart('عطر رجالي 3',1400)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqE.jpg" alt="عطر رجالي 4"><h3>عطر رجالي 4</h3><p class="price">1300</p><button onclick="addToCart('عطر رجالي 4',1300)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqF.jpg" alt="عطر رجالي 5"><h3>عطر رجالي 5</h3><p class="price">1000</p><button onclick="addToCart('عطر رجالي 5',1000)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqG.jpg" alt="عطر رجالي 6"><h3>عطر رجالي 6</h3><p class="price">1700</p><button onclick="addToCart('عطر رجالي 6',1700)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqH.jpg" alt="عطر رجالي 7"><h3>عطر رجالي 7</h3><p class="price">1100</p><button onclick="addToCart('عطر رجالي 7',1100)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqI.jpg" alt="عطر رجالي 8"><h3>عطر رجالي 8</h3><p class="price">1400</p><button onclick="addToCart('عطر رجالي 8',1400)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqJ.jpg" alt="عطر رجالي 9"><h3>عطر رجالي 9</h3><p class="price">1500</p><button onclick="addToCart('عطر رجالي 9',1500)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTqK.jpg" alt="عطر رجالي 10"><h3>عطر رجالي 10</h3><p class="price">1600</p><button onclick="addToCart('عطر رجالي 10',1600)">أضف للسلة</button></div>
+</div>
+
+<!-- ======= قسم حريمي ======= -->
+<h2 id="women">عطور حريمي</h2>
+<div class="container">
+  <div class="card"><img src="https://i.imgur.com/xGQzTrA.jpg" alt="عطر حريمي 1"><h3>عطر حريمي 1</h3><p class="price">1500</p><button onclick="addToCart('عطر حريمي 1',1500)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrB.jpg" alt="عطر حريمي 2"><h3>عطر حريمي 2</h3><p class="price">1400</p><button onclick="addToCart('عطر حريمي 2',1400)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrC.jpg" alt="عطر حريمي 3"><h3>عطر حريمي 3</h3><p class="price">1500</p><button onclick="addToCart('عطر حريمي 3',1500)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrD.jpg" alt="عطر حريمي 4"><h3>عطر حريمي 4</h3><p class="price">1600</p><button onclick="addToCart('عطر حريمي 4',1600)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrE.jpg" alt="عطر حريمي 5"><h3>عطر حريمي 5</h3><p class="price">1700</p><button onclick="addToCart('عطر حريمي 5',1700)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrF.jpg" alt="عطر حريمي 6"><h3>عطر حريمي 6</h3><p class="price">900</p><button onclick="addToCart('عطر حريمي 6',900)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrG.jpg" alt="عطر حريمي 7"><h3>عطر حريمي 7</h3><p class="price">1200</p><button onclick="addToCart('عطر حريمي 7',1200)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrH.jpg" alt="عطر حريمي 8"><h3>عطر حريمي 8</h3><p class="price">1400</p><button onclick="addToCart('عطر حريمي 8',1400)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrI.jpg" alt="عطر حريمي 9"><h3>عطر حريمي 9</h3><p class="price">1300</p><button onclick="addToCart('عطر حريمي 9',1300)">أضف للسلة</button></div>
+  <div class="card"><img src="https://i.imgur.com/xGQzTrJ.jpg" alt="عطر حريمي 10"><h3>عطر حريمي 10</h3><p class="price">1600</p><button onclick="addToCart('عطر حريمي 10',1600)">أضف للسلة</button></div>
+</div>
+
+</body>
+</html>
